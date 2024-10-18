@@ -33,6 +33,13 @@ install_neovim_linux() {
     sudo apt install neovim
 }
 
+install_neovim_linux_yum() {
+    sudo yum -y install ninja-build cmake gcc make unzip gettext curl git --allowerasing
+    git clone https://github.com/neovim/neovim
+    cd neovim && git checkout stable && make CMAKE_BUILD_TYPE=Release
+    sudo make install
+}
+
 # Install Neovim based on the specified operating system
 case "$os" in
     "macos")
@@ -41,6 +48,9 @@ case "$os" in
     "linux")
         install_neovim_linux
         ;;
+    "linux-yum")
+	install_neovim_linux_yum
+	;;
     *)
         echo "Unsupported operating system"
         exit 1
