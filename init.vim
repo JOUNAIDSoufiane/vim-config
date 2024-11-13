@@ -130,6 +130,7 @@ nnoremap e b
 
 " Type jj to exit insert mode quickly.
 inoremap jj <Esc>
+inoremap JJ <Esc>
 
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
